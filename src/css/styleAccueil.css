@@ -2,6 +2,10 @@ body {
 	background : rgb(200,200,200);
 }
 
+#logo{
+	width:300px;
+}
+
 #corps {
 	background : white;
 	margin-top:0px;
@@ -32,7 +36,7 @@ body {
 	margin-right:30%;
 	margin-left:30%;
 	margin-bottom:0;
-	background : gray;
+	background : grey;
 	padding-top : 30px;
 	padding-bottom : 20px;
 	border-radius : 10px;
@@ -53,28 +57,25 @@ select {
 	width:175px;
 }
 
+#legend {
+	background:#E20030;
+	color:white;
+}
+
 #scrollBar{
 	text-align:left;
-	 height:200px;
-	 overflow-x:hidden;
-	 overflow-y:auto;
-	 overflow : -moz-scrollbars-vertical;
+	height:200px;
+	overflow-x:hidden;
+	overflow-y:auto;
+	overflow : -moz-scrollbars-vertical;
 }
 
 #resultatRecherche #row:hover{
-	background:#336699;
+	background:#E20030;
 	color:white;
 	cursor:pointer;
 }
 
-#titreProjet {
-	color:blue;
-}
 .rowPair {
 	background: rgb(200,200,200);
 }
-
-#titre {
-	position:fixed;
-}
-

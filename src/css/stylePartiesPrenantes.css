@@ -4,5 +4,12 @@ input[type=text]{
 
 input[type=submit]{
 	margin-top:20px;
-	margin-bottom:20px;
+}
+
+button {
+	margin-top:20px;
+}
+
+#tableauPartiesPrenantes table tr td {
+	padding:0;
 }

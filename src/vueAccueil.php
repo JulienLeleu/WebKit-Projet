@@ -10,7 +10,7 @@
 	<div id="corps">
 		<div id="entete">
 			<a id ="deconnexion" href="logout.php">Se deconnecter</a><br/>
-			<a href="accueil.php"><img src="img/logoWebKitProjet.png"></a>
+			<a href="accueil.php"><img id="logo" src="img/logoWebKitProjetV2.png"></a>
 		</div>
 		<div id="nouveauKit">
 			<a href="nouveauKit.php" class="btn btn-primary">Nouveau kit Projet</a>
@@ -47,7 +47,7 @@
 		</div>
 		<br/><br/>
 		<fieldset>
-			<legend class="bg-primary">Résultat(s) de la recherche</legend>
+			<legend id="legend">Résultat(s) de la recherche</legend>
 			<div id="scrollBar">
 				<table id="resultatRecherche" class="table" border="1px">
 					<tr>

@@ -2,8 +2,12 @@ body {
 	background:rgb(200,200,200);
 }
 
+#logo{
+	width:300px;
+}
+
 #corps {
-	background : white;
+	background:white;
 	margin-top:0px;
 	margin-right:50px;
 	margin-left:50px;

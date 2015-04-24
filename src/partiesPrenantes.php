@@ -2,26 +2,38 @@
 <html>
     <head>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.4-dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/StickyTableHeaders/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/styleInterfaceProjet.css" />
 		<link rel="stylesheet" type="text/css" href="css/stylePartiesPrenantes.css" />
 		<script src="js/jquery-1.11.2.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="css/StickyTableHeaders/js/jquery.stickyheader.js"></script>
         <meta charset="utf-8" />
-        <title>Kit Projet - Parties prenantes</title>
+        <title>Kit Projet - Parties prenantes</title>		
     </head>
     <body>
 		<div id="corps">
 			<div id="entete">
 				<a id ="deconnexion" href="logout.php">Se deconnecter</a><br/>
-				<a href="accueil.php"><img src="img/logoWebKitProjet.png"></a>
+				<a href="accueil.php"><img id="logo" src="img/logoWebKitProjetV2.png"></a>
 			</div>
 			<?php 
 				include('nav.php');
 				getNav(8);
 			?>
 			<form action="#" method="GET">
+				<button type="button" class="btn btn-default" aria-label="Left Align">
+					<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="zoom(1);">
+					<span class="glyphicon glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="zoom(-1);">
+					<span class="glyphicon glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+				</button>
 				<input type="submit" class="btn btn-primary" value="Enregistrer les modifications"/>
-				<div id="tableauPartiesPrenantes" >
-					<table id="tableau" border="1px">
+				<div id="tableauPartiesPrenantes" style="font-size:10px" >
+					<table id="tableau" border="1px" class="overflow-y">
 						<thead>
 							<tr>
 								<th>Nom</th>
@@ -40,21 +52,21 @@
 						<div id="scrollable">
 						<tbody>
 							<?php
-							for($i=0;$i<50;$i++){
+							for($i=0;$i<10;$i++){
 								echo '
-							<tr>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-								<td><input type="text"></td>
-							</tr>';
+								<tr>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+								</tr>';
 							}
 							?>
 						</tbody>
@@ -67,46 +79,21 @@
     </body>
 </html>
 <script>
-$(document).ready(function(){
-    makeTableHeadersSticky("#my_table");
-});
- 
-function makeTableHeadersSticky(tableId)
-{
-    //collect widths of all the th elements
-    var thArr = $(tableId + " th");
-    //create an array to hold the auto calculated widths of each element
-    var thWidthsArr = [];
-    $(tableId + " th").each(function(){
-        thWidthsArr.push($(this).css("width"));
-    });
-    var pos = $(tableId).offset();
-    //set the distance of the table from the top,
-    //we ll need to make the headers sticky when this distance is 0  
-    var thTop = pos.top + "px";
-    //set the widths of the first and last tr's ths/tds...
-    //this is done coz in some cases,
-    //the widths will get messed up if the data was generated dynamically
-    var count = 0;
-    $(tableId + " tr:first-child&gt;th").each(function(){
-        $(this).css("width", thWidthsArr[count]);
-        count++;
-    });
-    count = 0;
-    $(tableId + " tr:last-child&gt;td").each(function(){
-        $(this).css("width", thWidthsArr[count]);
-        count++;
-    });
-    $(window).scroll(function(){
-        if($(window).scrollTop() &gt; pos.top)
-        {
-            $(tableId + " tr:first-child").css("position", "fixed");
-            $(tableId + " tr:first-child").css("top", "0px");
-        }
-        else
-        {
-            $(tableId + " tr:first-child").css("position", "relative");
-            $(tableId + " tr:first-child").css("top", thTop);
-        }
-    });
-}</script>
+	
+	function zoom(modif){
+		var t = extractNumberOf(document.getElementById("tableauPartiesPrenantes").style.fontSize);
+		t = t + modif;
+		document.getElementById("tableauPartiesPrenantes").style.fontSize = t + "px";		
+	}
+
+	function extractNumberOf(text){
+		var ar = "";
+		var tmp = "";
+		for (var i = 0; i < text.length; i++) {
+			if (!isNaN(text.charAt(i))) { // Si c'est un nombre
+				tmp = tmp + text.charAt(i).toString();
+			}
+		}
+	return Number(tmp);
+	}
+</script>

@@ -12,7 +12,7 @@
 		<div id="corps">
 			<div id="entete">
 				<a id ="deconnexion" href="logout.php">Se deconnecter</a><br/>
-				<a href="accueil.php"><img src="img/logoWebKitProjet.png"></a>
+				<a href="accueil.php"><img id="logo" src="img/logoWebKitProjetV2.png"></a>
 			</div>
 			<?php 
 				include('nav.php');

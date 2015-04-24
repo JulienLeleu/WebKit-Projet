@@ -9,7 +9,7 @@
 <body>
 	<div id="corps">
 		<a id ="deconnexion" href="logout.php">Se deconnecter</a><br/>
-		<a href="accueil.php"><img src="img/logoWebKitProjet.png"></a><br/>
+		<a href="accueil.php"><img id="logo" src="img/logoWebKitProjetV2.png"></a><br/>
 			<div id="ajout">
 				<form action="ajouterNouveauKit.php" method="GET" onsubmit="return verifForm(this)">
 					<label>Nom Projet :</label><input type="text" name="nomProjet" onBlur="verifText(this)"/><br/>
