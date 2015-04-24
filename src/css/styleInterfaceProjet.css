@@ -1,0 +1,28 @@
+body {
+	background:rgb(200,200,200);
+}
+
+#corps {
+	background : white;
+	margin-top:0px;
+	margin-right:50px;
+	margin-left:50px;
+	padding:50px;
+	padding-top:0px;
+	border-radius:10px;
+	text-align:center;
+}
+
+#deconnexion {
+	display: inline-block;
+	float:right;
+}
+
+.nav li a{
+	background: #336699;
+	color : white;
+}
+
+.nav li a:hover{
+	color : black;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.4-dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/styleLogin.css" />
+
+  <title>Authentification</title>
+</head>
+<body>
+	<div id="corps">
+		<div id="banniere">
+			<img src="img/logoSocGen.jpg">
+		</div>
+			<section>
+				<h3>Bienvenue sur le service d'authentification du webKit Projet de la société générale</h3>
+			</section>
+			<section id="connexion">
+				<h2>Connexion</h2><br/>
+				<div id="log">
+					<form  method="POST" action="authen.php">
+							<p>
+								<label>Identifiant :</label>
+								<input type ="TEXT" placeholder="Identifiant" name="login"/>
+							</p>
+							<p>
+								<label>Mot de passe :</label>
+								<input type ="PASSWORD" placeholder = "Mot de passe" name="mdp"/>
+							</p>
+						<input type ="submit" value="Connexion" class="btn btn-primary">
+					</form>
+				<div id="mdpOublie"><a href="#">Mot de passe perdu ?</a></div>
+				</div>
+			</section>
+	</div>
+</body>
+</html>

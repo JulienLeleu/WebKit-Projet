@@ -1,0 +1,80 @@
+body {
+	background : rgb(200,200,200);
+}
+
+#corps {
+	background : white;
+	margin-top:0px;
+	margin-right:100px;
+	margin-left:100px;
+	padding:50px;
+	padding-top:0px;
+	border-radius:10px;
+	text-align:center;
+}
+
+#entete {
+	text-align:center;
+}
+
+#nouveauKit a {
+	width:150px;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+#deconnexion {
+	display: inline-block;
+	float:right;
+}
+
+#recherche {
+	margin-right:30%;
+	margin-left:30%;
+	margin-bottom:0;
+	background : gray;
+	padding-top : 30px;
+	padding-bottom : 20px;
+	border-radius : 10px;
+}
+
+#recherche form label {
+	color: white;
+	display: inline-block;
+	width: 150px;
+	text-align:left;
+}
+
+input {
+	width:175px;
+}
+
+select {
+	width:175px;
+}
+
+#scrollBar{
+	text-align:left;
+	 height:200px;
+	 overflow-x:hidden;
+	 overflow-y:auto;
+	 overflow : -moz-scrollbars-vertical;
+}
+
+#resultatRecherche #row:hover{
+	background:#336699;
+	color:white;
+	cursor:pointer;
+}
+
+#titreProjet {
+	color:blue;
+}
+.rowPair {
+	background: rgb(200,200,200);
+}
+
+#titre {
+	position:fixed;
+}
+

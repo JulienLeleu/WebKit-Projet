@@ -1,0 +1,46 @@
+body {
+	background : rgb(200,200,200);
+}
+
+#corps {
+	background : white;
+	margin-top:0px;
+	margin-right:100px;
+	margin-left:100px;
+	padding:50px;
+	padding-top:0px;
+	border-radius:10px;
+	text-align:center;
+}
+
+#entete {
+	text-align:center;
+}
+
+#deconnexion {
+	display: inline-block;
+	float:right;
+}
+
+#ajout {
+	margin-right:20%;
+	margin-left:20%;
+	margin-bottom:0;
+	padding-top : 30px;
+	padding-bottom : 20px;
+	border-radius : 10px;
+}
+
+#ajout form label {
+	display: inline-block;
+	width: 250px;
+	text-align:left;
+}
+
+#ajout form select {
+	width:200px;
+}
+
+#ajout form input {
+	width:200px;
+}
