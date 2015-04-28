@@ -57,25 +57,28 @@ select {
 	width:175px;
 }
 
-#legend {
-	background:#E20030;
-	color:white;
-}
-
 #scrollBar{
 	text-align:left;
-	height:200px;
+	height:300px;
 	overflow-x:hidden;
 	overflow-y:auto;
 	overflow : -moz-scrollbars-vertical;
 }
 
 #resultatRecherche #row:hover{
-	background:#E20030;
-	color:white;
+	background : #336699;
 	cursor:pointer;
 }
 
+table thead{
+	background:#E20030;
+	color:white;
+}
+
 .rowPair {
-	background: rgb(200,200,200);
+	background: rgba(200,0,0,0.5);
+}
+
+.rowImpair {
+	background: rgba(200,0,0,0.2);
 }

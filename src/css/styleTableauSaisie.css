@@ -1,0 +1,28 @@
+input[type=text]{
+	width:100%;
+}
+
+input[type=submit]{
+	margin-top:20px;
+}
+
+button {
+	margin-top:20px;
+}
+
+#tableauPartiesPrenantes table tr th {
+	text-align:center;
+}
+
+#tableauPartiesPrenantes table tr td {
+	padding:0;
+}
+
+#tableauPartiesPrenantes table tr>td {
+	text-align:center;
+}
+
+/*Pour modifier la taille max de l'info Bulle*/
+div.tooltip-inner {
+    max-width: 1000px;
+}

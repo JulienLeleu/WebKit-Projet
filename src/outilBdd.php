@@ -52,7 +52,13 @@
 				$valeurs = $valeurs . '\'' .$arrayValue[$i] . '\'';
 			}
 		}
-		$bdd->query('INSERT INTO '.$nomTable.' VALUES(\'\', '.$valeurs.');');
+		echo "INSERT INTO ".$nomTable." VALUES(NULL, ".$valeurs.");<br><br/>";
+		$bdd->query('INSERT INTO '.$nomTable.' VALUES(NULL, '.$valeurs.');');
+	}
+	
+	function delete($bdd, $nomTable, $idProjet, $nomColId, $idLigne){
+		echo "DELETE FROM ".$nomTable."WHERE idProjet='".$idProjet."' AND ".$nomColId."='".$idLigne."';<br/><br/>";
+		$bdd->query('DELETE FROM '.$nomTable.' WHERE idProjet=\''.$idProjet.'\' AND '.$nomColId.'=\''.$idLigne.'\';');
 	}
 	
 	/**

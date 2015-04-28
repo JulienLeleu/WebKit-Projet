@@ -26,7 +26,7 @@ table {
     background: #fff;
 }
 td, th {
-    padding: 0.75em 1.5em;
+    padding: 0.75em 3.5em;
     text-align: left;
 }
 	td.err {
@@ -50,7 +50,7 @@ tbody tr:nth-child(2n-1) {
     transition: all .125s ease-in-out;
 }
 tbody tr:hover {
-    background-color: rgba(129,208,177,.3);
+    background-color: rgba(255,0,0,.5);
 }
 
 /* For appearance */

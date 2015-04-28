@@ -1,3 +1,6 @@
+<?php
+	include('modeleInterfaceProjet.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>

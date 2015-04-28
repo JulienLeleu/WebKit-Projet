@@ -50,12 +50,15 @@
 			<legend id="legend">Résultat(s) de la recherche</legend>
 			<div id="scrollBar">
 				<table id="resultatRecherche" class="table" border="1px">
-					<tr>
-						<th>Nom projet</th>
-						<th>AM</th>
-						<th>Derniere modification</th>
-						<th>Statut</th>
-					</tr>
+					<thead>
+						<tr>
+							<th>Nom projet</th>
+							<th>AM</th>
+							<th>Derniere modification</th>
+							<th>Statut</th>
+						</tr>
+					</thead>
+					<tbody>
 					<?php 
 						$numeroLigne=0;
 						foreach ($listeProjets as $projet):
@@ -75,6 +78,7 @@
 						<td>Non renseigné</td>
 					</tr>
 					<?php endforeach; ?>
+					</tbody>
 				</table>
 			</div>
 		</fieldset>
