@@ -10,15 +10,15 @@ button {
 	margin-top:20px;
 }
 
-#tableauPartiesPrenantes table tr th {
+#tab table tr th {
 	text-align:center;
 }
 
-#tableauPartiesPrenantes table tr td {
+#tab table tr td {
 	padding:0;
 }
 
-#tableauPartiesPrenantes table tr>td {
+#tab table tr>td {
 	text-align:center;
 }
 

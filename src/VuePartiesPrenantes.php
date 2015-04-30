@@ -21,7 +21,7 @@
 			</div>
 			<?php getNav(8);?>
 			<form action="ajouterPartiePrenante.php" method="POST">
-				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="addLinePartiePrenante('#tableau')">
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="addLinePartiePrenante('tableau')">
 					<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
 				</button>
 				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="zoom(1,'tableauPartiesPrenantes');">
@@ -31,7 +31,7 @@
 					<span class="glyphicon glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
 				</button>
 				<input type="submit" class="btn btn-primary" value="Enregistrer les modifications"/>
-				<div id="tableauPartiesPrenantes" style="font-size:10px" >
+				<div id="tab" style="font-size:10px" >
 					<table id="tableau" border="1px" class="overflow-y">
 						<thead>
 							<tr>
@@ -52,22 +52,36 @@
 						<div id="scrollable">
 						<tbody>
 							<?php
+							$i=0;
 							foreach ($tableauPartiePrenante as $partiePrenante):
+								$i++;
+								$nom='value="'.$partiePrenante['nom'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['nom'].'"';
+								$entite='value="'.$partiePrenante['entite'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['entite'].'"';
+								$comite='value="'.$partiePrenante['comite'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['comite'].'"';
+								$site='value="'.$partiePrenante['site'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['site'].'"';
+								$fonction='value="'.$partiePrenante['fonction'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['fonction'].'"';
+								$role='value="'.$partiePrenante['roleProjet'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['roleProjet'].'"';
+								$tel='value="'.$partiePrenante['tel'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['tel'].'"';
+								$email='value="'.$partiePrenante['email'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['email'].'"';
+								$interneExterne='value="'.$partiePrenante['interneExterne'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['interneExterne'].'"';
+								$perimetre='value="'.$partiePrenante['perimetre'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['perimetre'].'"';
+								$classification='value="'.$partiePrenante['classification'].'" data-toggle="tooltip" data-placement="top" title="'.$partiePrenante['classification'].'"';
+							
 							?>
 							<tr>
 								<input type="hidden" name="idPartiePrenante[]" value="<?php echo $partiePrenante['idPartiePrenante']?>">
-								<td><input type="checkbox" name="trash[]"></td>
-								<td><input type="text" name="nom[]" value="<?php echo $partiePrenante['nom']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['nom']?>"></td>
-								<td><input type="text" name="entite[]" value="<?php echo $partiePrenante['entite']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['entite']?>"></td>
-								<td><input type="text" name="comite[]" value="<?php echo $partiePrenante['comite']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['comite']?>"></td>
-								<td><input type="text" name="site[]" value="<?php echo $partiePrenante['site']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['site']?>"></td>
-								<td><input type="text" name="fonction[]" value="<?php echo $partiePrenante['fonction']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['fonction']?>"></td>
-								<td><input type="text" name="role[]" value="<?php echo $partiePrenante['roleProjet']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['roleProjet']?>"></td>
-								<td><input type="text" name="tel[]" value="<?php echo $partiePrenante['tel']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['tel']?>"></td>
-								<td><input type="text" name="email[]" value="<?php echo $partiePrenante['email']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['email']?>"></td>
-								<td><input type="text" name="interneExterne[]" value="<?php echo $partiePrenante['interneExterne']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['interneExterne']?>"></td>
-								<td><input type="text" name="perimetre[]" value="<?php echo $partiePrenante['perimetre']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['perimetre']?>"></td>
-								<td><input type="text" name="classification[]" value="<?php echo $partiePrenante['classification']?>" data-toggle="tooltip" data-placement="top" title="<?php echo $partiePrenante['classification']?>"></td>
+								<td><input type="checkbox" name="trash<?php echo $i;?>"></td>
+								<td><input type="text" name="nom[]" <?php echo $nom ?>></td>
+								<td><input type="text" name="entite[]" <?php echo $entite ?>></td>
+								<td><input type="text" name="comite[]" <?php echo $comite ?>></td>
+								<td><input type="text" name="site[]" <?php echo $site ?>></td>
+								<td><input type="text" name="fonction[]" <?php echo $fonction ?>></td>
+								<td><input type="text" name="role[]" <?php echo $role ?>></td>
+								<td><input type="text" name="tel[]" <?php echo $tel ?>></td>
+								<td><input type="text" name="email[]" <?php echo $email ?>></td>
+								<td><input type="text" name="interneExterne[]" <?php echo $interneExterne ?>></td>
+								<td><input type="text" name="perimetre[]" <?php echo $perimetre ?>></td>
+								<td><input type="text" name="classification[]" <?php echo $classification ?>></td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>

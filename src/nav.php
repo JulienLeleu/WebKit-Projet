@@ -9,8 +9,8 @@
 			'<li><a href="tdb.php"><span class="glyphicon glyphicon-home"></span> Tableau de bord</a></li>',
 			'<li><a href="#">Fiche projet</a></li>',
 			'<li><a href="#">RoadMap</a></li>',
-			'<li><a href="#">Liste jalons/actions</a></li>',
-			'<li><a href="#">Suivi des risques</a></li>',
+			'<li><a href="listeJalonsEtActions.php">Liste jalons/actions</a></li>',
+			'<li><a href="suiviDesRisques.php">Suivi des risques</a></li>',
 			'<li><a href="#">Budget</a></li>',
 			'<li><a href="#">Plan de charge</a></li>',
 			'<li><a href="partiesPrenantes.php">Parties prenantes</a></li>',
@@ -27,10 +27,10 @@
 				$onglets[$context-1] = '<li class="active"><a href="#">RoadMap</a></li>';
 			break;
 			case 4:
-				$onglets[$context-1] = '<li class="active"><a href="#">Liste jalons/actions</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="listeJalonsEtActions.php">Liste jalons/actions</a></li>';
 			break;
 			case 5:
-				$onglets[$context-1] = '<li class="active"><a href="#">Suivi des risques</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="suiviDesRisques.php">Suivi des risques</a></li>';
 			break;
 			case 6:
 				$onglets[$context-1] = '<li class="active"><a href="#">Budget</a></li>';

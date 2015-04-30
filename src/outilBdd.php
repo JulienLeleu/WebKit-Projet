@@ -83,7 +83,7 @@
 	*	@bdd : La variable associée à la base de donnée
 	*	@nomComboBox : Nom de la table contenant les valeurs de la combo box désirée
 	*/
-	function getComboBoxByName($bdd,$nomComboBox){
+	function displayComboBoxByName($bdd,$nomComboBox){
 		$result = '';
 		
 		//Si elle existe on extrait son contenu et on renvoi les valeur sous forme de balises <options>
@@ -96,7 +96,73 @@
 		}
 		return $result;
 	}
+	/**
+	*	Fonction qui génére un tableau a partir du nom de la table
+	*	et de l'id projet.
+	*	Pré-requis : Avoir une table qui existe et entrer les valeurs dans la table typeForm
+	*/
+	function displayTabByName($bdd, $nomTable, $idProjet){
+		$resultat ="";
+		if(exist($bdd,$nomTable)){
+			$request = $bdd->query('SELECT * FROM '.$nomTable.' WHERE idProjet=\''.$idProjet.'\';');
+			$resultat .= "<div id=\"tab\" style=\"font-size:10px\">\n";
+			$resultat .= "<table id=\"tableau\" border=\"1px\" class=\"overflow-y\">\n";
+			//Entête
+			$resultat .= "<thead>\n";
+			$resultat .= "<tr>\n";
+			$resultat .= "<th><span class=\"glyphicon glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></th>";
+			$resultat .= "<th>N°</th>";
+			//On affiche le nom des colonnes
+			for ($i=0; $i<$request->columnCount(); $i++){
+                $nomColonne = $request->getColumnMeta($i);
+				$requestTypeForm = $bdd->query('SELECT type FROM typeform WHERE nomTable=\''.$nomTable.'\' AND nomColonne=\''.$nomColonne['name'].'\';');
+				$typeForm = $requestTypeForm->fetch()[0];
+				if($typeForm!="hidden" && $typeForm!="null"){
+					$resultat .= "<th>".$nomColonne['name']."</th>\n";
+				}
+            }
+			$resultat .= "</tr>\n";
+			$resultat .= "</thead>\n";
+			$resultat .= "</div>";
+			
+			//Corps du tableau
+			$resultat .= "<div id=\"scrollable\">\n";
+			$resultat .= "<tbody>\n";
+			$cursorLine =0;
+			while($donnees = $request->fetch()){
+				$cursorLine++;
+				$resultat .= "<tr>\n";
+				$resultat .= "<td><input type=\"checkbox\" name=\"trash".$cursorLine."\"></td>";
+				$resultat .= "<td><label>".$cursorLine."</label></td>";
+				
+				//En fonction du type de formulaire qui doit être utilisé par colonne on affiche ...
+				for ($i=0; $i<$request->columnCount(); $i++){
+					$nomColonne = $request->getColumnMeta($i);
+					$requestTypeForm = $bdd->query('SELECT type FROM typeform WHERE nomTable=\''.$nomTable.'\' AND nomColonne=\''.$nomColonne['name'].'\';');
+					$typeForm = $requestTypeForm->fetch()[0];
+					
+					switch($typeForm){
+						case "text":
+						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						break;
+						
+						case "label":
+						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+					}
+				}
+				$resultat .= "</tr>\n";
+			}
+			$resultat .= "</tbody>\n";
+			$resultat .= "</div>\n";
+			$resultat .= "</table>\n";
+			$resultat .= "</div>\n";
+		}
+		return $resultat;
+	}
 	
+	/**
+	*	TO DO
+	*/
 	function disconnect (){}
 	
 ?>

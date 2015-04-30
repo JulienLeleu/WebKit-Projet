@@ -25,21 +25,21 @@
 				<option></option>
 				<?php 
 					//Affiche la combo box des am
-					echo getComboBoxByName($bdd,'cbAm');
+					echo displayComboBoxByName($bdd,'cbAm');
 				?>
 				</select><br/>
 				<label>Programme :</label><select name="programme" size="1">
 				<option></option>
 				<?php 
 					//Affiche la combo box des programmes
-					echo getComboBoxByName($bdd,'cbProgramme');
+					echo displayComboBoxByName($bdd,'cbProgramme');
 				?>
 				</select><br/>
 				<label>Statut :</label><select name="statut" size="1">
 				<option></option>
 				<?php 
 					//Affiche la combo box des statuts
-					echo getComboBoxByName($bdd,'cbStatut');
+					//echo displayComboBoxByName($bdd,'cbStatut');
 				?>
 				</select><br/>
 				<input type="submit" value="Rechercher" class="btn btn-primary"/>

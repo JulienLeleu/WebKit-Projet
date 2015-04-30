@@ -5,9 +5,10 @@
 	};
 	
 	function addLinePartiePrenante(idTableau){
+		var id = document.getElementById(idTableau).rows.length;
 		var ligne = '<tr>';
 		ligne += '<input type="hidden" name="idPartiePrenante[]" value="0">';
-		ligne += '<td><input type="checkbox" name="trash[]"></td>';
+		ligne += '<td><input type="checkbox" name="trash' + id + '"></td>';
 		ligne += '<td><input type="text" name="nom[]"></td>';
 		ligne += '<td><input type="text" name="entite[]"></td>';
 		ligne += '<td><input type="text" name="comite[]"></td>';
@@ -20,7 +21,32 @@
 		ligne += '<td><input type="text" name="perimetre[]"></td>';
 		ligne += '<td><input type="text" name="classification[]"></td>';
 		ligne += '</tr>';
-		$(idTableau).append(ligne);
+		$('#' + idTableau).append(ligne);
+	}
+	
+	function addLineSuiviDesRisques(idTableau){
+		var id = document.getElementById(idTableau).rows.length;
+		var ligne = '<tr>';
+		ligne += '<input type="hidden" name="idRisque[]" value="0">';
+		ligne += '<td><input type="checkbox" name="trash' + id + '"></td>';
+		ligne += '<td><label>' + id + '</label></td>';
+		ligne += '<td><input type="text" name="theme[]"></td>';
+		ligne += '<td><input type="text" name="chantier[]"></td>';
+		ligne += '<td><input type="text" name="dateIdent[]"></td>';
+		ligne += '<td><input type="text" name="echeance[]"></td>';
+		ligne += '<td><input type="text" name="alerteVers[]"></td>';
+		ligne += '<td><input type="text" name="typeDuRisque[]"></td>';
+		ligne += '<td><input type="text" name="risqueIdentifie[]"></td>';
+		ligne += '<td><input type="text" name="causeDuRisque[]"></td>';
+		ligne += '<td><input type="text" name="detailsIncidencesSurProjet[]"></td>';
+		ligne += '<td><input type="text" name="niveauImpact[]"></td>';
+		ligne += '<td><input type="text" name="probabiliteOccurence[]"></td>';
+		ligne += '<td><input type="text" name="actionAttenuation[]"></td>';
+		ligne += '<td><input type="text" name="acteur[]"></td>';
+		ligne += '<td><input type="text" name="statut[]"></td>';
+		ligne += '<td><input type="text" name="etat[]"></td>';
+		ligne += '</tr>';
+		$('#' + idTableau).append(ligne);
 	}
 	
 	function zoom(modif, id){

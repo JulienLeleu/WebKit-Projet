@@ -17,32 +17,32 @@
 					<label>Budget :</label><select name="budget" size="1">
 						<?php 
 							//Affiche la combo box des budgets
-							echo getComboBoxByName($bdd,'cbBudget');
+							echo displayComboBoxByName($bdd,'cbBudget');
 						?>
 					</select><br/>
 					<label>AM :</label><select name="am" size="1">
 						<?php
 							//Affiche la combo box des AM
-							echo getComboBoxByName($bdd,'cbAm');
+							echo displayComboBoxByName($bdd,'cbAm');
 						?>
 					</select><br/>
 					<label>DIB :</label><select name="dib" size="1">
 						<?php
 							//Affiche la combo box des DIB
-							echo getComboBoxByName($bdd,'cbDib');
+							echo displayComboBoxByName($bdd,'cbDib');
 						?>
 					</select><br/>
 					<label>Projet MFU concerné(id) :</label><input type="text" name="idMfu" onBlur="verifIsNumeric(this);"/><br/>
 					<label>Programme :</label><select name="programme" size="1">
 						<?php
 							//Affiche la combo box des programmes
-							echo getComboBoxByName($bdd,'cbProgramme');
+							echo displayComboBoxByName($bdd,'cbProgramme');
 						?>
 					</select><br/>
 					<label>Domaine :</label><select name="domaine" size="1">
 						<?php
 							//Affiche la combo box des domaines
-							echo getComboBoxByName($bdd,'cbDomaine');
+							echo displayComboBoxByName($bdd,'cbDomaine');
 						?>
 					</select><br/><br/>
 					<input type="submit" value="Créer" class="btn btn-primary">

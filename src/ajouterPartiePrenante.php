@@ -10,8 +10,8 @@
 
 	if($nbLignes>0){
 		for($i=0; $i<$nbLignes; $i++){
-			$trash = isset( $_POST['trash'][$i] ) ?  $_POST['trash'][$i] : false;
-			if($trash == true){
+			//$trash = isset( $_POST['trash'][$i] : true) ?  $_POST['trash'][$i] : false;
+			if(isset($_POST['trash'.($i+1)])){
 				deletePartiePrenanteById($_SESSION['idProjet'], $_POST['idPartiePrenante'][$i]);
 			}
 			else {
