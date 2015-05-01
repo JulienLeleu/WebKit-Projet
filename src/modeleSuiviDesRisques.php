@@ -1,27 +1,9 @@
 <?php
 	require 'outilBdd.php';
-	
-	function getRisques($idProjet){
-		$bdd = connect('kitprojet');
-		return $bdd->query('SELECT * FROM risque WHERE idProjet=\''.$idProjet.'\';');
-	}
-	
-	/**
-	*	Fonction qui vérifie si la ligne est déjà dans la bdd ou non
-	*	/!\ NE SERT PLUS
-	*/
-	function lineExist($idProjet, $id){
-		$bdd = connect('kitprojet');
-		$resultat = $bdd->query('SELECT * FROM risque WHERE idProjet=\''.$idProjet.'\' AND idRisque=\''.$id.'\';');
-		//Si il y a au moins une entrée(normalement il y en a qu'une seule)
-		if($resultat->rowCount() > 0) {
-			return true;
-		}
-		return false;
-	}
+	$bdd = connect('kitprojet');
 	
 	function update($idProjet, $arrayValue){
-		$bdd = connect('kitprojet');
+		global $bdd;
 		$valuesToUpdate = ' ';
 		$valuesToUpdate=$valuesToUpdate.'theme=\''.$arrayValue[1].'\'';
 		$valuesToUpdate=$valuesToUpdate.', chantier=\''.$arrayValue[2].'\'';
@@ -42,12 +24,12 @@
 	}
 	
 	function deleteRisqueById($idProjet, $idLigne){
-		$bdd = connect('kitprojet');
+		global $bdd;
 		delete($bdd,'risque',$idProjet,'idRisque',$idLigne);
 	}
 	
 	function insertOrUpdate($idProjet, $arrayValue){
-		$bdd = connect('kitprojet');
+		global $bdd;
 		if($arrayValue[0]!=0){
 			update($idProjet, $arrayValue);
 		}

@@ -22,8 +22,7 @@
 			</div>
 			<?php getNav(4);
 			$bdd = connect('kitProjet');
-			echo displayTabByName($bdd, 'partieprenante', $_SESSION['idProjet']);
+			echo displayTabByName($bdd, 'actionEtJalon', $_SESSION['idProjet']);
 			?>
-			
     </body>
 </html>

@@ -9,6 +9,7 @@
 		var ligne = '<tr>';
 		ligne += '<input type="hidden" name="idPartiePrenante[]" value="0">';
 		ligne += '<td><input type="checkbox" name="trash' + id + '"></td>';
+		ligne += '<td><label>' + id + '</label></td>';
 		ligne += '<td><input type="text" name="nom[]"></td>';
 		ligne += '<td><input type="text" name="entite[]"></td>';
 		ligne += '<td><input type="text" name="comite[]"></td>';

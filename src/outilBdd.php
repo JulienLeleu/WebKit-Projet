@@ -147,7 +147,12 @@
 						break;
 						
 						case "label":
-						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						$resultat .= "<td><label data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\">".$donnees[$i]."</label></td>\n";
+						break;
+						
+						case "hidden":
+						$resultat .= "<input type=\"hidden\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\">";
+						break;
 					}
 				}
 				$resultat .= "</tr>\n";
