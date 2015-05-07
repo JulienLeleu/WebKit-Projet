@@ -32,7 +32,6 @@
 				</button>
 				<input type="submit" class="btn btn-primary" value="Enregistrer les modifications"/>
 				<?php echo displayTabByName($bdd, 'partieprenante', $_SESSION['idProjet']); ?>
-				<input type="submit" class="btn btn-primary" value="Enregistrer les modifications"/>
 			</form>
 		</div>
     </body>

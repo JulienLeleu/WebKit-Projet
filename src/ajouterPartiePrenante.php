@@ -20,7 +20,7 @@
 				$comite = isset( $_POST['comite'][$i] ) ?  $_POST['comite'][$i] : NULL;
 				$site = isset( $_POST['site'][$i] ) ?  $_POST['site'][$i] : NULL;
 				$fonction = isset( $_POST['fonction'][$i] ) ?  $_POST['fonction'][$i] : NULL;
-				$role = isset( $_POST['role'][$i] ) ?  $_POST['role'][$i] : NULL;
+				$role = isset( $_POST['roleProjet'][$i] ) ?  $_POST['roleProjet'][$i] : NULL;
 				$tel = isset( $_POST['tel'][$i] ) ?  $_POST['tel'][$i] : NULL;
 				$email = isset( $_POST['email'][$i] ) ?  $_POST['email'][$i] : NULL;
 				$interneExterne = isset( $_POST['interneExterne'][$i] ) ?  $_POST['interneExterne'][$i] : NULL;

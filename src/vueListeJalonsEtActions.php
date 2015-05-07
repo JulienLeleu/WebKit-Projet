@@ -20,9 +20,19 @@
 				<a id ="deconnexion" href="logout.php">Se deconnecter</a><br/>
 				<a href="accueil.php"><img id="logo" src="img/logoWebKitProjetV2.png"></a>
 			</div>
-			<?php getNav(4);
-			$bdd = connect('kitProjet');
-			echo displayTabByName($bdd, 'actionEtJalon', $_SESSION['idProjet']);
-			?>
+			<?php getNav(4);?>
+			<form action="ajouterActionEtJalon.php" method="POST">
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="addLineListeActionsEtJalons('tableau')">
+					<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="zoom(1,'tab');">
+					<span class="glyphicon glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="btn btn-default" aria-label="Left Align" onclick="zoom(-1,'tab');">
+					<span class="glyphicon glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+				</button>
+				<input type="submit" class="btn btn-primary" value="Enregistrer les modifications"/>
+				<?php echo displayTabByName($bdd, 'actionEtJalon', $_SESSION['idProjet']); ?>
+			</form>
     </body>
 </html>

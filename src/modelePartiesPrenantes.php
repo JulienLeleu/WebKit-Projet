@@ -16,7 +16,7 @@
 		$valuesToUpdate=$valuesToUpdate.', interneExterne=\''.$arrayValue[9].'\'';
 		$valuesToUpdate=$valuesToUpdate.', perimetre=\''.$arrayValue[10].'\'';
 		$valuesToUpdate=$valuesToUpdate.', classification=\''.$arrayValue[11].'\'';
-		echo "UPDATE partiePrenante SET".$valuesToUpdate." WHERE idProjet=\'".$idProjet."\' AND idPartiePrenante=\'".$arrayValue[0]."\';<br/><br/>";
+		//echo "UPDATE partiePrenante SET".$valuesToUpdate." WHERE idProjet=\'".$idProjet."\' AND idPartiePrenante=\'".$arrayValue[0]."\';<br/><br/>";
 		$bdd->query('UPDATE partiePrenante SET'.$valuesToUpdate.' WHERE idProjet=\''.$idProjet.'\' AND idPartiePrenante=\''.$arrayValue[0].'\';');
 	}
 	

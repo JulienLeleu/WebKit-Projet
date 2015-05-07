@@ -52,12 +52,12 @@
 				$valeurs = $valeurs . '\'' .$arrayValue[$i] . '\'';
 			}
 		}
-		echo "INSERT INTO ".$nomTable." VALUES(NULL, ".$valeurs.");<br><br/>";
+		//echo "INSERT INTO ".$nomTable." VALUES(NULL, ".$valeurs.");<br><br/>";
 		$bdd->query('INSERT INTO '.$nomTable.' VALUES(NULL, '.$valeurs.');');
 	}
 	
 	function delete($bdd, $nomTable, $idProjet, $nomColId, $idLigne){
-		echo "DELETE FROM ".$nomTable."WHERE idProjet='".$idProjet."' AND ".$nomColId."='".$idLigne."';<br/><br/>";
+		//echo "DELETE FROM ".$nomTable."WHERE idProjet='".$idProjet."' AND ".$nomColId."='".$idLigne."';<br/><br/>";
 		$bdd->query('DELETE FROM '.$nomTable.' WHERE idProjet=\''.$idProjet.'\' AND '.$nomColId.'=\''.$idLigne.'\';');
 	}
 	
@@ -123,15 +123,21 @@
             }
 			$resultat .= "</tr>\n";
 			$resultat .= "</thead>\n";
-			$resultat .= "</div>";
+			
 			
 			//Corps du tableau
 			$resultat .= "<div id=\"scrollable\">\n";
 			$resultat .= "<tbody>\n";
 			$cursorLine =0;
+			$resultat .= "<input type=\"hidden\" name=\"table\" value=\"".$nomTable."\">";
 			while($donnees = $request->fetch()){
 				$cursorLine++;
-				$resultat .= "<tr>\n";
+				if($cursorLine%2==0){
+					$resultat .= "<tr class=\"rowPair\">\n";
+				}
+				else {
+					$resultat .= "<tr class=\"rowImpair\">\n";
+				}
 				$resultat .= "<td><input type=\"checkbox\" name=\"trash".$cursorLine."\"></td>";
 				$resultat .= "<td><label>".$cursorLine."</label></td>";
 				
@@ -146,12 +152,22 @@
 						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
 						break;
 						
+						case "date":
+						$resultat .= "<td><input type=\"date\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						break;
+						
 						case "label":
 						$resultat .= "<td><label data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\">".$donnees[$i]."</label></td>\n";
 						break;
 						
 						case "hidden":
 						$resultat .= "<input type=\"hidden\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\">";
+						break;
+						
+						default :
+						if($typeForm!="null"){
+							$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						}
 						break;
 					}
 				}
@@ -160,9 +176,62 @@
 			$resultat .= "</tbody>\n";
 			$resultat .= "</div>\n";
 			$resultat .= "</table>\n";
+			$resultat .= "</div>";
 			$resultat .= "</div>\n";
 		}
+		else {
+			$resultat = "<h2>Cette table n'existe pas</h2><br/><br/>";
+		}
 		return $resultat;
+	}
+	
+	function displayBudget($bdd, $dateMin, $dateMax, $idProjet){
+		$resultat ="";
+		$request = $bdd->query('SELECT * FROM budget WHERE idProjet=\''.$idProjet.'\';');
+		while($donnees = $request->fetch()){
+			for($i=$dateMin; $i<=$dateMax; $i++){
+				$req1 = $bdd->query('SELECT annee FROM budget, colBudget WHERE idProjet=\''.$idProjet.'\' AND budget.idBudget=colBudget.idBudget AND budget.idBudget=\''.$donnees['idBudget'].'\' AND annee=\''.$i.'\' GROUP BY annee;');
+				if($req1->rowCount()==0){
+					insert($bdd,'colBudget',array($donnees['idBudget'],$i,0));
+				}
+				echo "<br/>" . $i;
+			}
+		}
+			$resultat .= "<div id=\"tab\" style=\"font-size:10px\">\n";
+			$resultat .= "<table id=\"tableau\" border=\"1px\" class=\"overflow-y\">\n";
+			//Entête
+			$resultat .= "<thead>\n";
+			$resultat .= "<tr>\n";
+			$resultat .= "<th><span class=\"glyphicon glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></th>";
+			$resultat .= "<th>N°</th>";
+			//On affiche le nom des colonnes
+			for ($i=0; $i<$request->columnCount(); $i++){
+                $nomColonne = $request->getColumnMeta($i);
+				$requestTypeForm = $bdd->query('SELECT type FROM typeform WHERE nomTable=\'budget\' AND nomColonne=\''.$nomColonne['name'].'\';');
+				$typeForm = $requestTypeForm->fetch()[0];
+				if($typeForm!="hidden" && $typeForm!="null"){
+					$resultat .= "<th>".$nomColonne['name']."</th>\n";
+				}
+            }
+			$resultat .= "</tr>\n";
+			$resultat .= "</thead>\n";
+			$resultat .= "</div>";
+		
+		// for($i=$dateMin; $i<=$dateMax; $i++){
+			// $req1 = $bdd->query('SELECT annee FROM budget, colBudget WHERE idProjet=\''.$idProjet.'\' AND budget.idBudget=colBudget.idBudget AND annee=\''.$i.'\' GROUP BY annee;');//AND idBudget = $idBudget
+			// if(!$req1){
+				// die(print_r($bdd->errorInfo(), TRUE));
+				// insert($bdd,'colBudget',array('',/*idBudget,*/$i,0));
+			// }
+			// $resultat .= "<div id=\"tab\" style=\"font-size:10px\">\n";
+			// $resultat .= "<table id=\"tableau\" border=\"1px\" class=\"overflow-y\">\n";
+			// Entête
+			// $resultat .= "<thead>\n";
+			// $resultat .= "<tr>\n";
+			// $resultat .= "<th><span class=\"glyphicon glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></th>";
+			// $resultat .= "<th>N°</th>";
+		// }
+		echo $resultat;
 	}
 	
 	/**

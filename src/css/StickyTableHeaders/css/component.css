@@ -50,7 +50,7 @@ tbody tr:nth-child(2n-1) {
     transition: all .125s ease-in-out;
 }
 tbody tr:hover{
-    background-color: rgba(255,0,0,.5);
+    /*background-color: rgba(255,0,0,0.8);*/
 }
 
 tbody tr input {

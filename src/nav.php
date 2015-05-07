@@ -6,34 +6,34 @@
 	function getNav($context){
 		$result ='';
 		$onglets = array(
-			'<li><a href="tdb.php"><span class="glyphicon glyphicon-home"></span> Tableau de bord</a></li>',
+			'<li><a href="tdb.php"><span class="glyphicon glyphicon-home"></span></a></li>',
 			'<li><a href="#">Fiche projet</a></li>',
-			'<li><a href="#">RoadMap</a></li>',
-			'<li><a href="listeJalonsEtActions.php">Liste jalons/actions</a></li>',
+			'<li><a href="roadMap.php">RoadMap</a></li>',
+			'<li><a href="listeJalonsEtActions.php">Jalons et actions</a></li>',
 			'<li><a href="suiviDesRisques.php">Suivi des risques</a></li>',
-			'<li><a href="#">Budget</a></li>',
+			'<li><a href="budget.php">Budget</a></li>',
 			'<li><a href="#">Plan de charge</a></li>',
 			'<li><a href="partiesPrenantes.php">Parties prenantes</a></li>',
-			'<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Paramètres</a></li>'
+			'<li><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>'
 		);
 		switch($context){
 			case 1:
-				$onglets[$context-1] = '<li class="active"><a href="tdb.php"><span class="glyphicon glyphicon-home"></span> Tableau de bord</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="tdb.php"><span class="glyphicon glyphicon-home"></span></a></li>';
 			break;
 			case 2:
 				$onglets[$context-1] = '<li class="active"><a href="#">Fiche projet</a></li>';
 			break;
 			case 3:
-				$onglets[$context-1] = '<li class="active"><a href="#">RoadMap</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="roadMap.php">RoadMap</a></li>';
 			break;
 			case 4:
-				$onglets[$context-1] = '<li class="active"><a href="listeJalonsEtActions.php">Liste jalons/actions</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="listeJalonsEtActions.php">Jalons et actions</a></li>';
 			break;
 			case 5:
 				$onglets[$context-1] = '<li class="active"><a href="suiviDesRisques.php">Suivi des risques</a></li>';
 			break;
 			case 6:
-				$onglets[$context-1] = '<li class="active"><a href="#">Budget</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="budget.php">Budget</a></li>';
 			break;
 			case 7:
 				$onglets[$context-1] = '<li class="active"><a href="#">Plan de charge</a></li>';
@@ -42,7 +42,7 @@
 				$onglets[$context-1] = '<li class="active"><a href="partiesPrenantes.php">Parties prenantes</a></li>';
 			break;
 			case 9:
-				$onglets[$context-1] = '<li class="active"><a href="#"><span class="glyphicon glyphicon-cog"></span> Paramètres</a></li>';
+				$onglets[$context-1] = '<li class="active"><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>';
 			break;
 		}
 		
