@@ -1,50 +1,49 @@
-<?php // content="text/plain; charset=utf-8"
-require_once ('lib/jpgraph/src/jpgraph.php');
-require_once ('lib/jpgraph/src/jpgraph_gantt.php');
- 
-$graph = new GanttGraph(0,0);
-$graph->SetShadow();
- 
-// Add title and subtitle
-$graph->title->Set("Roadmap");
-$graph->title->SetFont(FF_ARIAL,FS_BOLD,12);
-//$graph->subtitle->Set("(version bêta)");
- 
-// Show day, week and month scale
-$graph->ShowHeaders(GANTT_HYEAR | GANTT_HMONTH);
- 
-// Instead of week number show the date for the first day in the week
-// on the week scale
-$graph->scale->week->SetStyle(WEEKSTYLE_FIRSTDAY);
- 
-// Make the week scale font smaller than the default
-$graph->scale->week->SetFont(FF_FONT0);
- 
-// Use the short name of the month together with a 2 digit year
-// on the month scale
-$graph->scale->month->SetFontColor("white");
-$graph->scale->month->SetBackgroundColor("blue");
- 
-// Format the bar for the first activity
-// ($row,$title,$startdate,$enddate)
-$activity = new GanttBar(0,"Project","2015-03-29","2015-06-27");
-//$activity2 = new GanttBar(1,"test","2015-12-21","2018-02-20");
- 
-// Yellow diagonal line pattern on a red background
-$activity->SetPattern(GANTT_SOLID,"yellow");
-$activity->SetFillColor("red");
-$activity->SetHeight(40);
-/*$activity2->SetPattern(GANTT_SOLID,"#FF55F");
-$activity2->SetFillColor("red");
-$activity2->SetHeight(10);*/
-//$ms4 = new MileStone(-0.25, 'Code complete', '2016-12-01','test');
-$vline = new GanttVLine(date("Y-m-d"),"Today");
-
-// Finally add the bar to the graph
-$graph->Add($activity);
-//$graph->Add($activity2);
-//$graph->Add($ms4);
-$graph->Add($vline);
-// ... and display it
-$graph->Stroke();
-?>
+<?php
+	/*define("TAILLE_MOIS", 70);
+	$date1 = new DateTime(getDateMin());
+	$date2 = new DateTime(getDateMax());
+	$j=0;
+	for($i=new DateTime($date1->format('d-m-Y'));$i<=$date2;$i->modify('+1 month')){
+		$j++;
+	}
+	//prévoir une fonction qui calcule la taille du SVG
+	echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"".($j*TAILLE_MOIS)."\" height=\"500\">";
+	$j=0;
+	$dateTmp=new DateTime($date1->format('d-m-Y'));
+	for($i=new DateTime($date1->format('d-m-Y'));$i<=$date2;$i->modify('+1 month')){
+		echo '<rect class="rectAnnee" x="'.($j*TAILLE_MOIS).'" y="5" width="'.TAILLE_MOIS.'" height="20"/>';
+		if($i==$date1 || $i->format('Y')!=$dateTmp->format('Y')){
+			echo '<text id="annee" x="'.($j*TAILLE_MOIS).'" y="20" >'.$i->format('Y').'</text>';
+		}
+			
+		echo '<rect class="rectMois" x="'.($j*TAILLE_MOIS).'" y="25" width="'.TAILLE_MOIS.'" height="20"/>';
+		
+		echo '<rect x="'.($j*TAILLE_MOIS).'" y="45" width="'.TAILLE_MOIS.'" height="600"/>';	
+		echo '<text x="'.($j*TAILLE_MOIS).'" y="40" >'.$i->format('M-Y').'</text>';
+		$dateTmp=new DateTime($i->format('d-m-Y'));
+		$j++;
+	}
+	echo '<rect id="test" class="rectMois" x="0" y="50" width="'.(getPosDate(new DateTime('2015-10-28'))).'" height="20"/>';	
+	echo '</svg>';
+	
+	function getPosDate($date){
+		global $date1;
+		global $date2;
+		$x=0;
+		$nbMonth=0;
+		$i=new DateTime($date1->format('Y-m').'-1');
+		while($i->format('Y-m')<$date->format('Y-m')){
+			$nbMonth++;
+			$i->modify('+1 month');
+		}
+		$x=(TAILLE_MOIS*($nbMonth-1)) + TAILLE_MOIS*($date->format('d')/31);
+		return $x;
+	}*/
+		require('ganttGraph.php');
+		$ganttGraph = new GanttGraph();
+		$ganttPhase = new GanttPhase('Test',array(new GanttAction('actionTest',new DateTime('2015-10-21'),new DateTime('2016-12-10')),new GanttAction('actionTest',new DateTime('2015-10-20'),new DateTime('2016-12-10'))));
+		$ganttPhase2 = new GanttPhase('Test2',array(new GanttAction('actionTest',new DateTime('2015-09-21'),new DateTime('2016-12-10')),new GanttAction('actionTest',new DateTime('2015-10-20'),new DateTime('2016-12-10'))));
+		$ganttGraph->add($ganttPhase);
+		$ganttGraph->add($ganttPhase2);
+		$ganttGraph->display();
+	?>

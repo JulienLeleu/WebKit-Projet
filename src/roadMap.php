@@ -1,6 +1,6 @@
 <?php
 	include('modeleInterfaceProjet.php');
-	//require 'modeleListeJalonsEtActions.php';
+	require 'modeleRoadMap.php';
 	require 'nav.php';
 	require 'vueRoadMap.php';
 ?>

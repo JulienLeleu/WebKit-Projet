@@ -149,15 +149,15 @@
 					
 					switch($typeForm){
 						case "text":
-						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" title=\"".$donnees[$i]."\"></td>\n";
 						break;
 						
 						case "date":
-						$resultat .= "<td><input type=\"date\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+						$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".dateYMDtoDMY($donnees[$i])."\" title=\"".$donnees[$i]."\"></td>\n";
 						break;
 						
 						case "label":
-						$resultat .= "<td><label data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\">".$donnees[$i]."</label></td>\n";
+						$resultat .= "<td><label title=\"".$donnees[$i]."\">".$donnees[$i]."</label></td>\n";
 						break;
 						
 						case "hidden":
@@ -166,7 +166,7 @@
 						
 						default :
 						if($typeForm!="null"){
-							$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"".$donnees[$i]."\"></td>\n";
+							$resultat .= "<td><input type=\"text\" name=\"".$nomColonne['name']."[]\" value=\"".$donnees[$i]."\" title=\"".$donnees[$i]."\"></td>\n";
 						}
 						break;
 					}
@@ -183,6 +183,22 @@
 			$resultat = "<h2>Cette table n'existe pas</h2><br/><br/>";
 		}
 		return $resultat;
+	}
+	
+	function dateDMYtoYMD($date){
+		if($date==""){
+			return "";
+		}
+		$newdate = str_replace('/', '-', $date);
+		return date('Y-m-d', strtotime($newdate));
+	}
+	
+	function dateYMDtoDMY($date){
+		if($date=="0000-00-00"){
+			return "";
+		}
+		$dateTmp = date('d-m-Y', strtotime($date));
+		return str_replace('-', '/', $dateTmp);
 	}
 	
 	function displayBudget($bdd, $dateMin, $dateMax, $idProjet){

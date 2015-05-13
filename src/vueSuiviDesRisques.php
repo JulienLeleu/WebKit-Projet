@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/StickyTableHeaders/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/styleInterfaceProjet.css" />
 		<link rel="stylesheet" type="text/css" href="css/styleTableauSaisie.css" />
+		<script type='text/javascript' src='http://bz.var.ru/comp/web/resizable-tables.js'></script>
 		<script src="js/outilTableau.js"></script>
 		<script src="js/jquery-1.11.2.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>

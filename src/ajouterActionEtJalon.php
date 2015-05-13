@@ -23,10 +23,10 @@
 				$fournisseur = isset( $_POST['fournisseur'][$i] ) ?  $_POST['fournisseur'][$i] : NULL;
 				$responsable = isset( $_POST['responsable'][$i] ) ?  $_POST['responsable'][$i] : NULL;
 				$type = isset( $_POST['type'][$i] ) ?  $_POST['type'][$i] : NULL;
-				$dateDebutInitiale = isset( $_POST['dateDebutInitiale'][$i] ) ?  $_POST['dateDebutInitiale'][$i] : NULL;
-				$dateFinInitiale = isset( $_POST['dateFinInitiale'][$i] ) ?  $_POST['dateFinInitiale'][$i] : NULL;
-				$dateDebutRevisee = isset( $_POST['dateDebutRevisee'][$i] ) ?  $_POST['dateDebutRevisee'][$i] : NULL;
-				$dateFinRevisee = isset( $_POST['dateFinRevisee'][$i] ) ?  $_POST['dateFinRevisee'][$i] : NULL;
+				$dateDebutInitiale = isset( $_POST['dateDebutInitiale'][$i] ) ?  dateDMYtoYMD($_POST['dateDebutInitiale'][$i]) : NULL;
+				$dateFinInitiale = isset( $_POST['dateFinInitiale'][$i] ) ?  dateDMYtoYMD($_POST['dateFinInitiale'][$i]) : NULL;
+				$dateDebutRevisee = isset( $_POST['dateDebutRevisee'][$i] ) ?  dateDMYtoYMD($_POST['dateDebutRevisee'][$i]) : NULL;
+				$dateFinRevisee = isset( $_POST['dateFinRevisee'][$i] ) ?  dateDMYtoYMD($_POST['dateFinRevisee'][$i]) : NULL;
 				$ponderation = isset( $_POST['ponderation'][$i] ) ?  $_POST['ponderation'][$i] : NULL;
 				$statut = isset( $_POST['statut'][$i] ) ?  $_POST['statut'][$i] : NULL;
 				$dependDe = isset( $_POST['dependDe'][$i] ) ?  $_POST['dependDe'][$i] : NULL;

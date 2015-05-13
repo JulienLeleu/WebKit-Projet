@@ -1,3 +1,34 @@
-body #corps #gantt{
-	margin-top:20px;
+svg{
+	margin-top:10px;
+	background : red;
+}
+
+#gantt{
+	width:100%;
+	overflow:auto;
+}
+
+svg rect {
+	fill:#F4E7E7;
+	stroke:white;
+}
+
+svg .rectAnnee {
+	fill:#E20030;
+	stroke:none;
+}
+
+/*#F4E7E7*/
+
+svg .rectMois {
+	fill:#E8CBCB;
+	stroke:white;
+}
+
+#annee {
+	fill:white;
+}
+
+#test{
+	fill:blue;
 }
