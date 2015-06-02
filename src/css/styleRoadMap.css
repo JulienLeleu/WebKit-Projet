@@ -1,6 +1,6 @@
 svg{
 	margin-top:10px;
-	background : red;
+	font-size:xx-small;
 }
 
 #gantt{
@@ -15,7 +15,7 @@ svg rect {
 
 svg .rectAnnee {
 	fill:#E20030;
-	stroke:none;
+	stroke:white;
 }
 
 /*#F4E7E7*/
@@ -24,11 +24,33 @@ svg .rectMois {
 	fill:#E8CBCB;
 	stroke:white;
 }
+svg line {
+	fill:red;
+	stroke:#E20030;
+	stroke-dasharray: 5, 5;
+	stroke-width: 1.5;
+}
 
 #annee {
 	fill:white;
 }
 
-#test{
-	fill:blue;
+#rectPhase{
+	fill:rgba(0,0,255,0.25);
+	stroke:none;
+}
+
+#rectActions{
+	fill:green;
+	stroke-width: 1;
+	stroke:white;
+}
+
+#phase {
+	fill:white;
+}
+
+#echelle{
+	text-align:left;
+	margin-top:10px;
 }

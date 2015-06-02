@@ -3,7 +3,7 @@ require_once ('lib/jpgraph/src/jpgraph.php');
 require_once ('lib/jpgraph/src/jpgraph_gantt.php');
 require 'modeleRoadMap.php';
  
-$graph = new GanttGraph(0,0);
+$graph = new GanttGraph(1000,1000);
 $graph->SetShadow();
 
 $graph->title->Set("Roadmap");
@@ -23,10 +23,6 @@ foreach($datas as $data){
 	$activity->SetFillColor("red");
 	$activity->title->SetFont(FF_ARIAL,FS_BOLD);
 	$activity->setHeight(12*$data[4]);
-	/*$activity->leftMark->SetType( MARK_LEFTTRIANGLE );
-	$activity->leftMark->Show();
-	$activity->rightMark->SetType( MARK_RIGHTTRIANGLE );
-	$activity->rightMark->Show();*/
 	$graph->Add($activity);
 	for($j=0;$j<$data[4];$j++){
 		$position = $data[0] - $j/12;
